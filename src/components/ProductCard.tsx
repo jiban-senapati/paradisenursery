@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ShoppingCart, Check } from 'lucide-react';
-import { addToCart } from '@/store/CartSlice';
+import { addItem } from '@/store/CartSlice';
 import { RootState } from '@/store/store';
 import { Plant } from '@/data/plants';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,7 @@ const ProductCard = ({ plant }: ProductCardProps) => {
 
   const handleAddToCart = () => {
     if (!isInCart) {
-      dispatch(addToCart({
+      dispatch(addItem({
         id: plant.id,
         name: plant.name,
         price: plant.price,

@@ -19,7 +19,7 @@ const Index = () => {
             <Leaf className="h-12 w-12 text-primary-foreground" />
           </div>
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Paradise Nursery
+            Welcome to Paradise Nursery
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Transform your space into a lush sanctuary. Discover our curated collection of beautiful houseplants.

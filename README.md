@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Paradise Nursery - Shopping Cart Application
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Paradise Nursery is a dynamic e-commerce web application for an online plant shop. This application allows users to browse a beautiful collection of houseplants, view detailed information about each plant, add items to a shopping cart, and manage their cart items with full CRUD functionality.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Landing Page**: Beautiful hero section with company branding and call-to-action
+- **Product Catalog**: Browse plants organized by category with thumbnails, names, descriptions, and prices
+- **Shopping Cart**: Full cart management with add/remove items, quantity controls, and total calculation
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Redux State Management**: Centralized cart state with Redux Toolkit
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- React 18
+- TypeScript
+- Redux Toolkit (for state management)
+- React Router DOM (for navigation)
+- Tailwind CSS (for styling)
+- Vite (build tool)
+- Shadcn/UI (component library)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Pages
 
-**Use your preferred IDE**
+1. **Home (/)** - Landing page with hero section and company introduction
+2. **Plants (/products)** - Product listing page with all plants organized by category
+3. **Cart (/cart)** - Shopping cart page with item management
+4. **About (/about)** - Company information and values
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Cart Functionality
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Add plants to cart with "Add to Cart" button
+- Button disables after product is added
+- Dynamic cart icon with item count
+- Increase/decrease quantity buttons
+- Remove items from cart
+- Real-time total calculation
+- Continue shopping and checkout buttons
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## Author
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Built as a final project for the React development course.
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT License

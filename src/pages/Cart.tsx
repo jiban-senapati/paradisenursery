@@ -2,18 +2,27 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ShoppingBag, ArrowLeft, CreditCard } from 'lucide-react';
 import { RootState } from '@/store/store';
+import { CartItem } from '@/store/CartSlice';
 import CartItemComponent from '@/components/CartItem';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
 
+// Function to calculate the total amount of all items in the cart
+const calculateTotalAmount = (items: CartItem[]): number => {
+  return items.reduce((total, item) => total + (item.price * item.quantity), 0);
+};
+
 const Cart = () => {
-  const { items, totalAmount, totalQuantity } = useSelector(
+  const { items, totalQuantity } = useSelector(
     (state: RootState) => state.cart
   );
 
+  // Calculate total amount using the helper function
+  const totalAmount = calculateTotalAmount(items);
+
   const handleCheckout = () => {
     toast({
-      title: "Coming Soon! 🌿",
+      title: "Coming Soon!",
       description: "Checkout functionality will be available soon. Thank you for your patience!",
     });
   };

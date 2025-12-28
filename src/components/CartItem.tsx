@@ -1,14 +1,34 @@
 import { useDispatch } from 'react-redux';
 import { Minus, Plus, Trash2 } from 'lucide-react';
-import { increaseQuantity, decreaseQuantity, removeFromCart, CartItem as CartItemType } from '@/store/CartSlice';
+import { updateQuantity, removeItem, CartItem as CartItemType } from '@/store/CartSlice';
 import { Button } from '@/components/ui/button';
 
 interface CartItemProps {
   item: CartItemType;
 }
 
+// Helper function to calculate total amount for a single item
+const calculateItemTotal = (price: number, quantity: number): number => {
+  return price * quantity;
+};
+
 const CartItem = ({ item }: CartItemProps) => {
   const dispatch = useDispatch();
+
+  const handleIncreaseQuantity = () => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+  };
+
+  const handleDecreaseQuantity = () => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+  };
+
+  const handleRemoveItem = () => {
+    dispatch(removeItem(item.id));
+  };
+
+  // Calculate total for this item
+  const itemTotal = calculateItemTotal(item.price, item.quantity);
 
   return (
     <div className="flex gap-4 p-4 bg-card rounded-xl border border-border animate-fade-in">
@@ -35,7 +55,7 @@ const CartItem = ({ item }: CartItemProps) => {
             variant="outline"
             size="icon"
             className="h-8 w-8"
-            onClick={() => dispatch(decreaseQuantity(item.id))}
+            onClick={handleDecreaseQuantity}
           >
             <Minus className="h-4 w-4" />
           </Button>
@@ -48,7 +68,7 @@ const CartItem = ({ item }: CartItemProps) => {
             variant="outline"
             size="icon"
             className="h-8 w-8"
-            onClick={() => dispatch(increaseQuantity(item.id))}
+            onClick={handleIncreaseQuantity}
           >
             <Plus className="h-4 w-4" />
           </Button>
@@ -60,13 +80,13 @@ const CartItem = ({ item }: CartItemProps) => {
           variant="ghost"
           size="icon"
           className="text-destructive hover:text-destructive hover:bg-destructive/10"
-          onClick={() => dispatch(removeFromCart(item.id))}
+          onClick={handleRemoveItem}
         >
           <Trash2 className="h-5 w-5" />
         </Button>
         
         <p className="font-serif text-lg font-bold text-primary">
-          ${(item.price * item.quantity).toFixed(2)}
+          ${itemTotal.toFixed(2)}
         </p>
       </div>
     </div>

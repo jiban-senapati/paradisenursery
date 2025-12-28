@@ -1,17 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ShoppingCart, Check } from 'lucide-react';
 import { addItem } from '@/store/CartSlice';
-import { RootState } from '@/store/store';
-import { Plant } from '@/data/plants';
 import { Button } from '@/components/ui/button';
 
-interface ProductCardProps {
-  plant: Plant;
-}
-
-const ProductCard = ({ plant }: ProductCardProps) => {
+const ProductCard = ({ plant }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
   const isInCart = cartItems.some(item => item.id === plant.id);
 
   const handleAddToCart = () => {

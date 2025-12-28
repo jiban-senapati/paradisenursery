@@ -1,33 +1,18 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-  category: string;
-}
-
-interface CartState {
-  items: CartItem[];
-  totalQuantity: number;
-  totalAmount: number;
-}
-
-const initialState: CartState = {
+const initialState = {
   items: [],
   totalQuantity: 0,
   totalAmount: 0,
 };
 
 // Helper function to calculate total amount from items
-const calculateTotalAmount = (items: CartItem[]): number => {
+const calculateTotalAmount = (items) => {
   return items.reduce((total, item) => total + (item.price * item.quantity), 0);
 };
 
 // Helper function to calculate total quantity from items
-const calculateTotalQuantity = (items: CartItem[]): number => {
+const calculateTotalQuantity = (items) => {
   return items.reduce((total, item) => total + item.quantity, 0);
 };
 
@@ -36,7 +21,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     // addItem: Adds a new item to the cart or increases quantity if already exists
-    addItem: (state, action: PayloadAction<Omit<CartItem, 'quantity'>>) => {
+    addItem: (state, action) => {
       const existingItem = state.items.find(item => item.id === action.payload.id);
       
       if (existingItem) {
@@ -50,14 +35,14 @@ const cartSlice = createSlice({
     },
     
     // removeItem: Removes an item completely from the cart
-    removeItem: (state, action: PayloadAction<string>) => {
+    removeItem: (state, action) => {
       state.items = state.items.filter(item => item.id !== action.payload);
       state.totalQuantity = calculateTotalQuantity(state.items);
       state.totalAmount = calculateTotalAmount(state.items);
     },
     
     // updateQuantity: Updates the quantity of a specific item
-    updateQuantity: (state, action: PayloadAction<{ id: string; quantity: number }>) => {
+    updateQuantity: (state, action) => {
       const item = state.items.find(item => item.id === action.payload.id);
       
       if (item) {

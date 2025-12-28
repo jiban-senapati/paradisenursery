@@ -1,13 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Leaf, Home } from 'lucide-react';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
 
 const Navbar = () => {
   const location = useLocation();
-  const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">

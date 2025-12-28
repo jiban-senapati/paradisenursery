@@ -1,18 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { Minus, Plus, Trash2 } from 'lucide-react';
-import { updateQuantity, removeItem, CartItem as CartItemType } from '@/store/CartSlice';
+import { updateQuantity, removeItem } from '@/store/CartSlice';
 import { Button } from '@/components/ui/button';
 
-interface CartItemProps {
-  item: CartItemType;
-}
-
 // Helper function to calculate total amount for a single item
-const calculateItemTotal = (price: number, quantity: number): number => {
+const calculateItemTotal = (price, quantity) => {
   return price * quantity;
 };
 
-const CartItem = ({ item }: CartItemProps) => {
+const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const handleIncreaseQuantity = () => {

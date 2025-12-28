@@ -1,13 +1,4 @@
-export interface Plant {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  category: string;
-}
-
-export const plants: Plant[] = [
+export const plants = [
   // Air Purifying Plants
   {
     id: 'ap-1',
@@ -151,7 +142,7 @@ export const plants: Plant[] = [
   },
   {
     id: 'su-6',
-    name: 'Burro\'s Tail',
+    name: "Burro's Tail",
     price: 22,
     description: 'Cascading blue-green leaves create stunning displays.',
     image: 'https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=400&h=400&fit=crop',
@@ -160,7 +151,7 @@ export const plants: Plant[] = [
 ];
 
 export const getPlantsByCategory = () => {
-  const categories: { [key: string]: Plant[] } = {};
+  const categories = {};
   
   plants.forEach(plant => {
     if (!categories[plant.category]) {
